@@ -1,0 +1,192 @@
+/* Importazione Font Google per un look più elegante (Playfair Display) */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+
+/* Stile base */
+body {
+    /* Manteniamo lo sfondo nero per l'esterno del contenitore */
+    background-color: #000; 
+    color: #333; /* Testo di base scuro */
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Variabili Colori */
+:root {
+    --gold: #A68E5D; /* Oro elegante e spento per il testo */
+    --black-text: #222222; /* Nero/Grigio scuro per il testo principale */
+    --paper-white: #FDFDFD; /* Bianco crema per lo sfondo dell'invito */
+}
+
+.gold-text {
+    color: var(--gold);
+}
+
+/* Contenitore Busta/Invito (Ora come la carta) */
+#envelope-container {
+    width: 90%;
+    max-width: 500px;
+    min-height: 400px;
+    background-color: var(--paper-white); 
+    border: 1px solid var(--gold); /* Bordo sottile dorato */
+    border-radius: 5px; /* Angoli più definiti */
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Ombra discreta */
+    transition: all 0.7s ease-in-out;
+}
+
+/* Nasconde il checkbox */
+#toggle {
+    display: none;
+}
+
+/* ------------------------------------- */
+/* STATO APERTO (Contenuto dell'Invito) */
+/* ------------------------------------- */
+#open-state {
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s 0.2s, transform 0.6s 0.2s;
+}
+
+.small-text {
+    font-size: 0.9em;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--gold);
+    font-family: 'Playfair Display', serif;
+}
+
+.main-title {
+    color: var(--black-text);
+    font-size: 4em; 
+    margin: 10px 0;
+    line-height: 1.1;
+    font-family: 'Playfair Display', serif; 
+    font-weight: 700;
+    text-shadow: none; /* Rimuoviamo l'ombra "glow" */
+}
+
+.date-time {
+    font-size: 1.1em;
+    margin-top: 25px;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+    color: var(--gold);
+    font-family: 'Playfair Display', serif;
+}
+
+.details {
+    color: var(--black-text);
+    font-family: 'Playfair Display', serif;
+}
+
+.separator {
+    width: 60%;
+    height: 1px;
+    background-color: var(--gold);
+    margin: 30px auto;
+}
+
+/* ------------------------------------- */
+/* LOGICA DI APERTURA CSS (Senza JS) */
+/* ------------------------------------- */
+
+/* Quando il checkbox è SPUNTATO: */
+#toggle:checked ~ #envelope-container #closed-state {
+    display: none; 
+    opacity: 0;
+}
+
+#toggle:checked ~ #envelope-container #open-state {
+    display: block; 
+    opacity: 1; 
+    transform: translateY(0);
+}
+
+/* ------------------------------------- */
+/* STILE PULSANTI DI AZIONE - TONDI */
+/* ------------------------------------- */
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+    margin-top: 40px; 
+}
+
+.action-button {
+    text-decoration: none;
+    color: var(--gold);
+    background-color: transparent; 
+    padding: 12px 25px; 
+    border-radius: 50px; /* <--- QUESTO GENERA I PULSANTI ROTONDI */
+    font-weight: normal;
+    text-transform: none; 
+    transition: all 0.3s;
+    border: 2px solid var(--gold); 
+    font-family: 'Playfair Display', serif;
+    display: inline-block;
+}
+
+.action-button.whatsapp {
+    color: var(--paper-white); 
+    background-color: var(--gold);
+    border: 2px solid var(--gold); 
+}
+
+.action-button:hover {
+    background-color: var(--gold);
+    color: var(--paper-white);
+    transform: translateY(-1px); 
+}
+
+.action-button.whatsapp:hover {
+    background-color: var(--black-text);
+    color: var(--gold);
+    border-color: var(--black-text); 
+}
+
+
+/* ------------------------------------- */
+/* STILE CONTO ALLA ROVESCIA (NERO E ORO) */
+/* ------------------------------------- */
+#countdown-container {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--gold); /* Linea di separazione elegante */
+    text-align: center;
+}
+
+#countdown {
+    color: var(--black-text); /* Colore principale (Nero/Grigio scuro) */
+    font-size: 1.2em;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.time-value {
+    color: var(--gold); /* I numeri saranno in Oro */
+    font-size: 1.3em; 
+    font-weight: 700;
+    margin: 0 5px;
+}
+
+/* Ottimizzazione per mobile */
+@media (max-width: 600px) {
+    #envelope-container {
+        padding: 20px;
+    }
+    .main-title {
+        font-size: 3em;
+    }
+}
