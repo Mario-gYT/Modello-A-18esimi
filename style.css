@@ -4,48 +4,6 @@
 
 /* Stile base */
 body {
-    /* Manteniamo lo sfondo nero per l'esterno del contenitore */
-    background-color: #000; 
-    color: #333; /* Testo di base scuro */
-    font-family: 'Arial', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-/* Variabili Colori */
-:root {
-    --gold: #A68E5D; /* Oro elegante e spento per il testo */
-    --black-text: #222222; /* Nero/Grigio scuro per il testo principale */
-    --paper-white: #FDFDFD; /* Bianco crema per lo sfondo dell'invito */
-}
-
-.gold-text {
-    color: var(--gold);
-}
-
-/* Contenitore Busta/Invito (Ora come la carta) */
-#envelope-container {
-    width: 90%;
-    max-width: 500px;
-    min-height: 400px;
-    background-color: var(--paper-white); 
-    border: 1px solid var(--gold); /* Bordo sottile dorato */
-    border-radius: 5px; /* Angoli più definiti */
-    padding: 40px;
-    text-align: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Ombra discreta */
-    transition: all 0.7s ease-in-out;
-}
-
-/* Nasconde il checkbox */
-#toggle {
-    display: none;
-}
 
 /* ------------------------------------- */
 /* STATO APERTO (Contenuto dell'Invito) */
