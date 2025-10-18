@@ -1,13 +1,13 @@
-/* Importazione Font Google per un look più elegante (Playfair Display) */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+/* Importazione Font Google per Playfair Display e Great Vibes (Corsivo) */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Great+Vibes&display=swap');
 
 
 /* Stile base */
 body {
     /* Manteniamo lo sfondo nero per l'esterno del contenitore */
     background-color: #000; 
-    color: #333; /* Testo di base scuro */
-    font-family: 'Arial', sans-serif;
+    color: #333; 
+    font-family: 'Playfair Display', serif; /* Font predefinito */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,26 +19,33 @@ body {
 
 /* Variabili Colori */
 :root {
-    --gold: #A68E5D; /* Oro elegante e spento per il testo */
-    --black-text: #222222; /* Nero/Grigio scuro per il testo principale */
+    --gold: #A68E5D; /* Oro elegante */
+    --black-text: #222222; 
     --paper-white: #FDFDFD; /* Bianco crema per lo sfondo dell'invito */
+    
+    /* Colori Sesso */
+    --boy-color: #79A6D2; /* Azzurro tenue */
+    --girl-color: #F8BBD0; /* Rosa tenue */
 }
 
 .gold-text {
     color: var(--gold);
 }
+.black-text {
+    color: var(--black-text);
+}
 
-/* Contenitore Busta/Invito (Ora come la carta) */
+/* Contenitore Busta/Invito (Modello Purity) */
 #envelope-container {
     width: 90%;
     max-width: 500px;
     min-height: 400px;
     background-color: var(--paper-white); 
-    border: 1px solid var(--gold); /* Bordo sottile dorato */
-    border-radius: 5px; /* Angoli più definiti */
+    border: 1px solid var(--gold); 
+    border-radius: 5px; 
     padding: 40px;
     text-align: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Ombra discreta */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
     transition: all 0.7s ease-in-out;
 }
 
@@ -60,7 +67,6 @@ body {
 
 #closed-state h1 {
     color: var(--black-text);
-    font-family: 'Playfair Display', serif;
     font-weight: 500;
 }
 
@@ -70,7 +76,7 @@ body {
     color: var(--paper-white);
     border: 1px solid var(--gold);
     padding: 12px 30px;
-    border-radius: 0; /* Pulsante squadrato */
+    border-radius: 5px; 
     font-weight: bold;
     cursor: pointer;
     text-transform: uppercase;
@@ -82,7 +88,7 @@ body {
 .gold-button:hover {
     background-color: var(--black-text);
     color: var(--gold);
-    transform: none; /* Rimuoviamo l'effetto scale */
+    transform: none; 
 }
 
 /* ------------------------------------- */
@@ -100,7 +106,6 @@ body {
     margin-bottom: 5px;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: var(--gold);
     font-family: 'Playfair Display', serif;
 }
 
@@ -111,21 +116,27 @@ body {
     line-height: 1.1;
     font-family: 'Playfair Display', serif; 
     font-weight: 700;
-    text-shadow: none; /* Rimuoviamo l'ombra "glow" */
+}
+
+.cursive-name {
+    font-family: 'Great Vibes', cursive;
+    font-size: 5em;
+    font-weight: 400;
+    color: var(--black-text);
+    margin: 0;
+    line-height: 1.2;
 }
 
 .date-time {
     font-size: 1.1em;
-    margin-top: 25px;
+    margin-top: 20px;
     margin-bottom: 30px;
     letter-spacing: 1px;
-    color: var(--gold);
-    font-family: 'Playfair Display', serif;
 }
 
 .details {
-    color: var(--black-text);
-    font-family: 'Playfair Display', serif;
+    margin-top: 20px;
+    margin-bottom: 10px; /* Aggiunto piccolo margine sotto i dettagli */
 }
 
 .separator {
@@ -135,11 +146,7 @@ body {
     margin: 30px auto;
 }
 
-/* ------------------------------------- */
-/* LOGICA DI APERTURA CSS (Senza JS) */
-/* ------------------------------------- */
-
-/* Quando il checkbox è SPUNTATO: */
+/* LOGICA DI APERTURA CSS (Mantenuta Invariata) */
 #toggle:checked ~ #envelope-container #closed-state {
     display: none; 
     opacity: 0;
@@ -158,15 +165,29 @@ body {
     display: flex;
     flex-direction: column;
     gap: 15px; 
-    margin-top: 40px; 
+    margin-top: 15px; /* Rimosso grande margine, gestito dai testi 'details' */
 }
+
+/* Allinea i pulsanti social uno accanto all'altro */
+.buttons-container.social-buttons {
+    flex-direction: row; /* Modifica da colonna a riga */
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Riduce il padding per i pulsanti social più piccoli */
+.social-buttons .action-button {
+    padding: 10px 15px;
+    font-size: 0.9em;
+}
+
 
 .action-button {
     text-decoration: none;
     color: var(--gold);
     background-color: transparent; 
     padding: 12px 25px; 
-    border-radius: 50px; /* <--- QUESTO GENERA I PULSANTI ROTONDI */
+    border-radius: 50px; 
     font-weight: normal;
     text-transform: none; 
     transition: all 0.3s;
@@ -193,30 +214,41 @@ body {
     border-color: var(--black-text); 
 }
 
+/* ------------------------------------- */
+/* DECORAZIONI PER SESSO (Modello A Battesimo) */
+/* ------------------------------------- */
 
-/* ------------------------------------- */
-/* STILE CONTO ALLA ROVESCIA (NERO E ORO) */
-/* ------------------------------------- */
-#countdown-container {
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 1px solid var(--gold); /* Linea di separazione elegante */
-    text-align: center;
+.decorations {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
-#countdown {
-    color: var(--black-text); /* Colore principale (Nero/Grigio scuro) */
-    font-size: 1.2em;
-    font-family: 'Playfair Display', serif;
-    font-weight: 600;
-    line-height: 1.5;
+/* Nasconde gli elementi decorativi di default */
+.teddy-bear, .balloons {
+    opacity: 0;
+    transition: opacity 0.5s;
 }
 
-.time-value {
-    color: var(--gold); /* I numeri saranno in Oro */
-    font-size: 1.3em; 
-    font-weight: 700;
-    margin: 0 5px;
+/* Stile per RAGAZZO */
+#open-state.boy .balloons {
+    opacity: 1;
+    color: var(--boy-color);
+}
+#open-state.boy .teddy-bear {
+    opacity: 1;
+    color: var(--boy-color);
+}
+/* Stile per RAGAZZA */
+#open-state.girl .balloons {
+    opacity: 1;
+    color: var(--girl-color);
+}
+#open-state.girl .teddy-bear {
+    opacity: 1;
+    color: var(--girl-color);
 }
 
 /* Ottimizzazione per mobile */
@@ -226,5 +258,8 @@ body {
     }
     .main-title {
         font-size: 3em;
+    }
+    .cursive-name {
+        font-size: 4em;
     }
 }
